@@ -4,28 +4,42 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float mouseSensitivity = 100f;
 
-    public Transform playerBody;
+    public int MaxGunAngle = 90;
+    public int MaxMountAngle = 45;
 
-    float xRotation = 0f;
+    public Transform Gun;
+    public Transform Mount;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        //Get Input
+        var h = Input.GetAxis("Mouse X");
+        var v = Input.GetAxis("Mouse Y");
+        //Get Current Rotation
+        var mountRot = Mount.localRotation;
+        var gunRot = Gun.localRotation;
+        //Add input to current rotation
+        mountRot *= Quaternion.AngleAxis(h, Vector3.up);
+        gunRot *= Quaternion.AngleAxis(v, Vector3.right);
+        //Assign and clamp rotation
+        Mount.localRotation = ClampRotationAroundAxis(mountRot, 1, -MaxMountAngle, MaxMountAngle);
+        Gun.localRotation = ClampRotationAroundAxis(gunRot, 0, -MaxGunAngle, MaxGunAngle);
     }
 
-    // Update is called once per frame
-    void Update()
+    private Quaternion ClampRotationAroundAxis(Quaternion q, int axis, float minAngle, float maxAngle)
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        q.x /= q.w;
+        q.y /= q.w;
+        q.z /= q.w;
+        q.w = 1.0f;
 
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        float angle = 2.0f * Mathf.Rad2Deg * Mathf.Atan(q[axis]);
 
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        playerBody.Rotate(Vector3.up * mouseX);
+        angle = Mathf.Clamp(angle, minAngle, maxAngle);
+
+        q[axis] = Mathf.Tan(0.5f * Mathf.Deg2Rad * angle);
+
+        return q;
     }
 }
