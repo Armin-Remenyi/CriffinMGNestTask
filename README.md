@@ -11,5 +11,5 @@ Machine gun nest job interview task for Criffin
 2. Suggestions  
 - [ ] 2.1. Enemies not moving in a straight line (possibly using cover).  
 - [ ] 2.2. Suppression mechanic (scared enemies don't move).  
-- [ ] 2.3. Score counting and game over scene. Restart button somewhere too.  
+- [X] 2.3. Score counting and game over scene. Restart button somewhere too.  
 - [X] 2.4. Using Git with LFS (Large File Storage) for development.
