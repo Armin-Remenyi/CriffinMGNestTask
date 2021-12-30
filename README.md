@@ -2,9 +2,9 @@
 Machine gun nest job interview task for Criffin
 
 1. Requirements  
-- [ ] 1.1. Aiming and shooting the mounted machine gun.  
+- [X] 1.1. Aiming and shooting the mounted machine gun.  
 - [ ] 1.2. Enemies spawning in over time.  
-- [ ] 1.3. Enemies moving towards player position.  
+- [X] 1.3. Enemies moving towards player position.  
 - [X] 1.4. Basic environment.  
 - [X] 1.5. Developed on Unity 2019.4 or higher.  
 - [ ] 1.6. Playable build for PC  
