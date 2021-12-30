@@ -5,10 +5,10 @@ using UnityEngine;
 public class AIMovement : MonoBehaviour
 {
     public Transform Nest;
-    public int MoveSpeed = 4;
+    public int MoveSpeed = 3;
     public int MaxDistance = 10;
     public int MinDistance = 5;
-    public float health = 50f;
+    public float health = 10f;
 
 
     GameObject target;
@@ -37,6 +37,15 @@ public class AIMovement : MonoBehaviour
         }
     }
 
+    public void TakeDamage(float amount)
+    {
+        health -= amount;
+        if (health <= 0f)
+        {
+            Score.scoreValue += 2;
+            Die();
+        }
+    }
 
     void Die()
     {
@@ -48,6 +57,7 @@ public class AIMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Nest")
         {
+            NestHealth.maxHealth -= 1;
             Destroy(gameObject);
 
         }

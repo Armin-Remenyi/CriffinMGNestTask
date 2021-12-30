@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Nest: {fileID: 0}
-  MoveSpeed: 4
+  MoveSpeed: 3
   MaxDistance: 10
   MinDistance: 0
-  health: 2
+  health: 20
