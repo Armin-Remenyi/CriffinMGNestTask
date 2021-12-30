@@ -6,7 +6,7 @@ public class NestHealth : MonoBehaviour
 {
     public static int maxHealth = 20;
     public int currentHealth;
-    public GameObject gameOver, restart;
+    public GameObject GameOver, Restart;
     public HealthBar HealthBar;
 
 
@@ -15,8 +15,8 @@ public class NestHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
         HealthBar.SetMaxHealth(maxHealth);
-        gameOver.gameObject.SetActive(false);
-        restart.gameObject.SetActive(false);
+        GameOver.gameObject.SetActive(false);
+        Restart.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -31,8 +31,8 @@ public class NestHealth : MonoBehaviour
         {
             currentHealth = 0;
             Time.timeScale = 0;
-            gameOver.gameObject.SetActive(true);
-            restart.gameObject.SetActive(true);
+            GameOver.gameObject.SetActive(true);
+            Restart.gameObject.SetActive(true);
 
         }
         HealthBar.SetHealth(maxHealth);
