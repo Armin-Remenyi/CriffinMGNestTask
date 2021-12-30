@@ -21,7 +21,7 @@ public class AISpawn : MonoBehaviour
     void Spawn()
     {
         int spawnPoints = Random.Range(0, 5);
-        int randomEnemy = Random.Range(0, 4);
+        int randomEnemy = Random.Range(0, 1);
 
         // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
         Instantiate(this.randomEnemy[randomEnemy], this.spawnPoints[spawnPoints].position, this.spawnPoints[spawnPoints].rotation);

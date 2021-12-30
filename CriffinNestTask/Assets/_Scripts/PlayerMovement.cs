@@ -11,6 +11,11 @@ public class PlayerMovement : MonoBehaviour
     public Transform Gun;
     public Transform Mount;
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
     private void Update()
     {
         //Get Input
@@ -25,6 +30,9 @@ public class PlayerMovement : MonoBehaviour
         //Assign and clamp rotation
         Mount.localRotation = ClampRotationAroundAxis(mountRot, 1, -MaxMountAngle, MaxMountAngle);
         Gun.localRotation = ClampRotationAroundAxis(gunRot, 0, -MaxGunAngle, MaxGunAngle);
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Cursor.lockState = CursorLockMode.Confined;
     }
 
     private Quaternion ClampRotationAroundAxis(Quaternion q, int axis, float minAngle, float maxAngle)

@@ -66,16 +66,16 @@ public class MachineGunScript : MonoBehaviour
     public float damage = 10f;
     public float range = 100f;
     public float fireRate = 15f;
-    //public AudioSource audioSource;
+    public AudioSource audioSource;
 
     public Camera fpsCam;
-    //public ParticleSystem muzzleFlash;
+    public ParticleSystem muzzleFlash;
 
     private float nextTimeToFire = 0f;
 
     private void Start()
     {
-        //audioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -83,7 +83,7 @@ public class MachineGunScript : MonoBehaviour
     {
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
-            //audioSource.Play();
+            audioSource.Play();
 
             nextTimeToFire = Time.time + 1f / fireRate;
             Shoot();
@@ -92,7 +92,7 @@ public class MachineGunScript : MonoBehaviour
 
     void Shoot()
     {
-        //muzzleFlash.Play();
+        muzzleFlash.Play();
 
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))

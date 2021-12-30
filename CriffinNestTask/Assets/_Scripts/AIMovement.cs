@@ -17,7 +17,7 @@ public class AIMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     
+        target = GameObject.Find("Nest");
     }
 
     // Update is called once per frame
@@ -37,15 +37,6 @@ public class AIMovement : MonoBehaviour
         }
     }
 
-    //public void TakeDamage(float amount)
-    //{
-    //    health -= amount;
-    //    if (health <= 0f)
-    //    {
-    //        totalScore.scoreValue += 5;
-    //        Die();
-    //    }
-    //}
 
     void Die()
     {
@@ -57,7 +48,6 @@ public class AIMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Nest")
         {
-            //villageHealth.maxHealth -= 1;
             Destroy(gameObject);
 
         }
