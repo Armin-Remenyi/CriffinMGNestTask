@@ -1,42 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AIMovement : MonoBehaviour
 {
-    public Transform Nest;
-    public int MoveSpeed = 3;
-    public int MaxDistance = 10;
-    public int MinDistance = 5;
     public float health = 10f;
+    public NavMeshAgent agent;
 
-
-    GameObject target;
-
+    [SerializeField] private Transform movePositionTransform;
 
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.Find("Nest");
+        agent = GetComponent<NavMeshAgent>();
+    }
+
+    void Awake()
+    {
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(Nest);
-
-        if (Vector3.Distance(transform.position, Nest.position) >= MinDistance)
-        {
-
-            transform.position += transform.forward * MoveSpeed * Time.deltaTime;
-
-            if (Vector3.Distance(transform.position, Nest.position) <= MaxDistance)
-            {
-
-            }
-        }
+        agent.destination = movePositionTransform.position; 
     }
-
     public void TakeDamage(float amount)
     {
         health -= amount;
@@ -46,13 +35,10 @@ public class AIMovement : MonoBehaviour
             Die();
         }
     }
-
     void Die()
     {
         Destroy(gameObject);
     }
-
-
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Nest")

@@ -22,7 +22,7 @@ public class Score : MonoBehaviour
     {
         score.text = "Score: " + scoreValue;
 
-        if (scoreValue >= 20)
+        if (scoreValue >= 30)
         {
             Time.timeScale = 0;
             Win();

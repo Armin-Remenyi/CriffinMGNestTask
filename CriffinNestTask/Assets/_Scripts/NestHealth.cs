@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NestHealth : MonoBehaviour
 {
-    public static int maxHealth = 20;
+    public static int maxHealth = 15;
     public int currentHealth;
     public GameObject GameOver, Restart;
     public HealthBar HealthBar;
