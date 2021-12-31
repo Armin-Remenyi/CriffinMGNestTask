@@ -9,7 +9,7 @@ Machine gun nest job interview task for Criffin
 - [X] 1.5. Developed on Unity 2019.4 or higher.  -->  **Unity 2019.4.34**
 - [X] 1.6. Playable build for PC --> **A playable build can be found in the CriffinMGNestTask/CriffinNestTask/CriffinTaskWindowsBuild folder**
 2. Suggestions  
-- [ ] 2.1. Enemies not moving in a straight line (possibly using cover).  --> **No current implementation**
+- [ ] 2.1. Enemies not moving in a straight line (possibly using cover).  --> **No current implementation, although NavMesh makes them move smarter**
 - [ ] 2.2. Suppression mechanic (scared enemies don't move).  --> **No current implementation**
 - [X] 2.3. Score counting and game over scene. Restart button somewhere too.  --> **Score displayed for killing enemies, restart button at the end**
 - [X] 2.4. Using Git with LFS (Large File Storage) for development. --> **Used LFS with the Github desktop sofware**
