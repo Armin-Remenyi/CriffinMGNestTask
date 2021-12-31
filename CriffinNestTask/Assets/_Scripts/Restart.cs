@@ -20,7 +20,6 @@ public class Restart : MonoBehaviour
     public void RestartGame()
     {
         Debug.Log("Restart");
-        //SceneManager.LoadScene("MachineGunNest");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
